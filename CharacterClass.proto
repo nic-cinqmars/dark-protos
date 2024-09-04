@@ -51,6 +51,7 @@ message SS2C_TRAINING_INFO_RES {
 
 message SC2S_TRAINING_REDEEM_LEARNING_TOKEN_REQ {
     string masterCharacterId = 1;
+    string masterCharacterClass = 2;
 }
 
 message SS2C_TRAINING_REDEEM_LEARNING_TOKEN_RES {
