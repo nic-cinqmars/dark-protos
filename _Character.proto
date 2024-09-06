@@ -107,6 +107,15 @@ message SRankUserInfo {
     uint32 gameType = 4;
 }
 
+message SCHARACTER_LAST_GAME_INFO {
+    string accountId = 1;
+    string accountNickname = 2;
+    SACCOUNT_NICKNAME nickName = 3;
+    string characterId = 4;
+    string characterClass = 5;
+    int32 gender = 6;
+}
+
 enum Friend_Location {
     Friend_Location_NONE = 0;
     Friend_Location_LOBBY = 1;

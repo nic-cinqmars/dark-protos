@@ -91,6 +91,12 @@ message Define_Item {
         CRAFT = 4;
         ALLY = 5;
     }
+    
+    enum OriginType {
+        NONE_ORIGIN = 0;
+        FOUND_BY = 1;
+        CRAFTED_BY = 2;
+    }
 }
 
 message Define_Equipment {
@@ -214,6 +220,7 @@ message Define_Game {
         DUNGEON_DUO_HIGH_ROLLER = 6;
         ARENA_DUO = 7;
         ARENA_TRIO = 8;
+        ARENA_SOLO = 9;
     }
     
     enum Floor {
@@ -239,6 +246,7 @@ message Define_Common {
         CUSTOMIZE = 10;
         SHOP = 11;
         RECRUIT = 12;
+        RELIGION = 13;
     }
     
     enum ServerLocation {
@@ -247,6 +255,8 @@ message Define_Common {
         QA = 2;
         PLAY_TEST = 3;
         NA = 4;
+        DEV1 = 5;
+        DEV2 = 6;
     }
 }
 
@@ -349,7 +359,11 @@ message Operate {
         POLICY_PREVENT_CROWS_HR_PARTY_SIZE_LIMIT = 52;
         POLICY_RANDOM_MATCHMAKING_ON_OFF = 53;
         POLICY_ALLOW_EQUIPMENT_ITEMS_ON_OFF = 54;
-        POLICY_MULTI_CLASS_SYSTEM_ON_OFF = 55;
+        POLICY_ARENA_NO_DUPLICATE_CLASS_ACCESS = 55;
+        POLICY_RELIGION_WEEKLY_RESET_DAY = 56;
+        POLICY_MULTI_CLASS_SYSTEM_ON_OFF = 57;
+        POLICY_MERCHANT_BUY_BULK_LIMIT_COUNT = 58;
+        POLICY_ARENA_ENABLED = 59;
     }
 }
 

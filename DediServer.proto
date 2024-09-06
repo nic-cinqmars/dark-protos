@@ -10,13 +10,16 @@ option java_outer_classname = "dediServer";
 option java_package = "com.packets.dediServer";
 
 message SGameQuestContentInfo {
-    string contentId = 2;
-    int32 contentValue = 3;
+    string contentId = 1;
+    int32 contentValue = 2;
 }
 
 message SGameQuestInfo {
-    string questId = 1;
-    repeated SGameQuestContentInfo infos = 2;
+    string merchantId = 1;
+    string questId = 2;
+    string chapterId = 3;
+    int32 alreadyGetAffinity = 4;
+    repeated SGameQuestContentInfo infos = 5;
 }
 
 message S2C_GameEnterUser_Json {
@@ -177,6 +180,10 @@ message S2C_GameCharacterInfo_Json {
     int32 fame = 23;
     int32 isBlackList = 24;
     int32 gearScore = 25;
+    int32 expressItemCount = 26;
+    int32 maxSendExpressCount = 27;
+    string religionId = 28;
+    int32 blessingLv = 29;
 }
 
 message C2S_GameAliveCheck_GET {
@@ -256,6 +263,8 @@ message GameResultInfo {
     string dungeonIdTag = 23;
     uint32 isBasecamp = 24;
     string userPcLanguageCode = 25;
+    string characterNickName = 26;
+    string characterSteamingModeNickName = 27;
 }
 
 message C2S_GameEscapeUser_POST {
@@ -420,6 +429,7 @@ message C2S_Arena_Result_POST {
     GameResultInfo resultInfo = 1;
     repeated SItem items = 2;
     string secretId = 3;
+    int32 isWinner = 4;
 }
 
 message C2S_Arena_Exit_POST {
@@ -434,4 +444,16 @@ message C2S_Game_Finalize_Session_POST {
     string accountId = 2;
     string characterId = 3;
     repeated SItem recoveryItems = 4;
+    repeated SItem expressItems = 5;
+}
+
+message C2S_Game_KillCount_Data_Info {
+    string religionId = 1;
+    string targetReligionId = 2;
+    uint64 killCount = 3;
+}
+
+message C2S_Game_KillCount_Update_POST {
+    string seasonId = 1;
+    repeated C2S_Game_KillCount_Data_Info data = 2;
 }

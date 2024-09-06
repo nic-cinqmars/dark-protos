@@ -131,3 +131,29 @@ message SSHOP_ITEM_CHECKED_INFO {
 message SS2C_SHOP_ITEM_CHECK_NOT {
     int32 shopNotifyStatus = 1;
 }
+
+message SC2S_SHOP_LEGEND_DLC_INSTALL_REQ {
+    
+}
+
+message SS2C_SHOP_LEGEND_DLC_INSTALL_RES {
+    int32 result = 1;
+    int64 trxId = 2;
+    string trxIdStr = 3;
+    string platformId = 4;
+    string offerItemId = 5;
+    string sandboxId = 6;
+    string param1 = 7;
+    string param2 = 8;
+}
+
+message SC2S_SHOP_LEGEND_DLC_INSTALL_CHECK_REQ {
+    uint32 appId = 1;
+    uint64 orderId = 2;
+    int32 authorized = 3;
+    string transactionId = 4;
+}
+
+message SS2C_SHOP_LEGEND_DLC_INSTALL_CHECK_RES {
+    int32 result = 1;
+}

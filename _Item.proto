@@ -27,6 +27,9 @@ message SDownItem {
     repeated SItemProperty primaryPropertyArray = 10;
     repeated SItemProperty secondaryPropertyArray = 11;
     int32 lootState = 12;
+    int32 originType = 13;
+    string originNickName = 14;
+    string originSteamingModeNickName = 15;
 }
 
 message SItem {
@@ -40,6 +43,9 @@ message SItem {
     repeated SItemProperty primaryPropertyArray = 9;
     repeated SItemProperty secondaryPropertyArray = 10;
     int32 lootState = 11;
+    int32 originType = 12;
+    string originNickName = 13;
+    string originSteamingModeNickName = 14;
 }
 
 message SItemProperties {

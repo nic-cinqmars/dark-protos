@@ -183,6 +183,10 @@ message SS2C_PARTY_RANDOM_MATCHMAKING_NOT {
     int32 isRandomMatchmaking = 1;
 }
 
+message SS2C_PARTY_LAST_GAME_MEMBER_INFO_NOT {
+    repeated SCHARACTER_LAST_GAME_INFO infos = 1;
+}
+
 enum PARTY_INVITE_ANSWER {
     INVITE_ANSWER_NONE = 0;
     INVITE_ANSWER_ACEEPT = 1;

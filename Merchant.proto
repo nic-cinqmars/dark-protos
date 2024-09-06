@@ -21,6 +21,7 @@ message SMERCHANT_INFO {
         QUEST = 1;
         SUCCESS = 2;
         RECOVERY = 3;
+        EXPRESS = 4;
     }
 }
 
@@ -34,7 +35,8 @@ message SMERCHANT_QUEST_INFO {
     string questId = 2;
     string chapterId = 3;
     int32 questFlag = 4;
-    repeated SMERCHANT_QUEST_CONTENT_INFO missions = 5;
+    int32 alreadyGetAffinity = 5;
+    repeated SMERCHANT_QUEST_CONTENT_INFO missions = 6;
     
     enum FLAG {
         NONE = 0;
@@ -64,6 +66,7 @@ message SMERCHANT_STOCK_BUY_ITEM_INFO {
     SItem itemInfo = 3;
     int32 originPrice = 4;
     int32 finalPrice = 5;
+    uint32 stockCount = 6;
 }
 
 message SMERCHANT_STOCK_CRAFT_ITEM_INFO {
@@ -119,6 +122,7 @@ message SC2S_MERCHANT_STOCK_BUY_REQ {
     uint64 stockUniqueId = 2;
     repeated MERCHANT_TRADE_ITEM_INFO dealItemList = 3;
     repeated SMERCHANT_TRADE_SLOT_INFO merchantSlotInfo = 4;
+    uint32 bulkCount = 5;
 }
 
 message SS2C_MERCHANT_STOCK_BUY_RES {
@@ -284,6 +288,11 @@ message SRECOVERY_ITEM_PRICE {
     uint32 amount = 2;
 }
 
+message SEXPRESS_ITEM_PRICE {
+    string itemId = 1;
+    uint32 amount = 2;
+}
+
 message SMERCHANT_RECOVERY_ITEM_INFO {
     uint64 recoveryUniqueId = 1;
     SItem itemInfo = 2;
@@ -345,4 +354,35 @@ message SC2S_MERCHANT_RECOVERY_CHECK_REQ {
 
 message SS2C_MERCHANT_RECOVERY_CHECK_RES {
     uint32 recoveryFlag = 1;
+}
+
+message SC2S_MERCHANT_EXPRESS_LIST_REQ {
+    
+}
+
+message SS2C_MERCHANT_EXPRESS_LIST_RES {
+    repeated SMERCHANT_EXPRESS_ITEM_INFO infos = 1;
+}
+
+message SC2S_MERCHANT_EXPRESS_BUY_REQ {
+    uint64 expressUniqueId = 1;
+    repeated MERCHANT_TRADE_ITEM_INFO dealItemList = 2;
+    repeated SMERCHANT_TRADE_SLOT_INFO merchantSlotInfo = 3;
+}
+
+message SS2C_MERCHANT_EXPRESS_BUY_RES {
+    int32 result = 1;
+    string givenItemId = 2;
+}
+
+message SMERCHANT_EXPRESS_ITEM_INFO {
+    uint64 expressUniqueId = 1;
+    SItem itemInfo = 2;
+    repeated SEXPRESS_ITEM_PRICE originPriceList = 3;
+    repeated SEXPRESS_ITEM_PRICE salePriceList = 4;
+    uint64 remainExpiredTimeMS = 5;
+}
+
+message SS2C_MERCHANT_EXPRESS_ITEM_CHECK_NOT {
+    uint32 expressFlag = 1;
 }

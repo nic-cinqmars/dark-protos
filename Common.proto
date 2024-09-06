@@ -227,3 +227,21 @@ message SS2C_CLIENT_POPUP_MESSAGE_NOT {
 message SS2C_TERMINATE_NOT {
     
 }
+
+message ArenaSchedule {
+    uint32 gameType = 1;
+    int64 beginUnixTime = 2;
+    int64 endUnixTime = 3;
+}
+
+message SS2C_ARENA_SCHEDULE_NOT {
+    repeated ArenaSchedule schedules = 1;
+}
+
+message SC2S_DLC_INSTALLED_CHECK_REQ {
+    string dlcId = 1;
+}
+
+message SS2C_DLC_INSTALLED_CHECK_RES {
+    
+}
