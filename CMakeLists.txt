@@ -7,8 +7,8 @@ endif()
 set(PROTO_FILES
     Account.proto
     Agent.proto
-    _Character.proto
     CharacterClass.proto
+    _Character.proto
     _Chat.proto
     Common.proto
     Customize.proto
@@ -29,6 +29,7 @@ set(PROTO_FILES
     _PacketCommand.proto
     Party.proto
     Ranking.proto
+    Religion.proto
     _Reward.proto
     Shop.proto
     Trade.proto
