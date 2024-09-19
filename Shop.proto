@@ -44,6 +44,12 @@ message SREWARD_INFO {
     string stockId = 2;
 }
 
+message STWITCH_REWARD_INFO {
+    string rewardType = 1;
+    string stockId = 2;
+    uint32 rewardCount = 3;
+}
+
 message SC2S_SHOP_ENTER_GIFT_CODE_REQ {
     string giftCode = 1;
 }
@@ -156,4 +162,9 @@ message SC2S_SHOP_LEGEND_DLC_INSTALL_CHECK_REQ {
 
 message SS2C_SHOP_LEGEND_DLC_INSTALL_CHECK_RES {
     int32 result = 1;
+}
+
+message SS2C_SHOP_TWITCH_DROPS_REWARD_NOT {
+    uint32 result = 1;
+    repeated STWITCH_REWARD_INFO rewards = 2;
 }

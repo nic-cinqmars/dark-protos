@@ -122,6 +122,8 @@ message religion_season_data {
     string religionId = 2;
     uint32 blessingLevel = 3;
     uint64 seasonStartRemainingTime = 4;
+    uint64 religionResetRemainingTime = 5;
+    uint32 isOverAllTime = 6;
 }
 
 message SS2C_RELIGION_GET_SEASON_INFO_RES {

@@ -158,3 +158,15 @@ message SS2C_LOBBY_RANDOM_MATCHMAKING_RES {
 message SS2C_DLC_LEGENDARY_STATUS_DUPLICATE_WARNING_NOT {
     
 }
+
+message SARENA_STAT_INFO {
+    int32 resultStatus = 1;
+    int32 resultValue = 2;
+}
+
+message SS2C_ARENA_STAT_NOT {
+    repeated SARENA_STAT_INFO arenaStats = 1;
+    int32 kill = 2;
+    int32 death = 3;
+    int32 assist = 4;
+}

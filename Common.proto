@@ -81,6 +81,7 @@ message SS2C_RE_LOGIN_RES {
     string address = 2;
     string sessionId = 3;
     string accountId = 4;
+    int32 gameType = 5;
 }
 
 message SS2C_CLOSED_GAME_NOT {
@@ -222,6 +223,25 @@ message SS2C_PLATFORM_LINK_FAQ_URL_RES {
 
 message SS2C_CLIENT_POPUP_MESSAGE_NOT {
     string message = 1;
+}
+
+message SC2S_TWITCH_DROPS_CONNECT_REQ {
+    uint32 status = 1;
+}
+
+message SS2C_TWITCH_DROPS_CONNECT_RES {
+    uint32 result = 1;
+    string clientLink = 2;
+}
+
+message SS2C_TWITCH_DROPS_CONNECT_NOT {
+    uint32 result = 1;
+    uint32 isChanged = 2;
+    uint32 isLinked = 3;
+}
+
+message SS2C_TWITCH_DROPS_LINKED_NOT {
+    uint32 result = 1;
 }
 
 message SS2C_TERMINATE_NOT {

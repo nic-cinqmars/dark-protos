@@ -229,6 +229,13 @@ message Define_Game {
         FLOOR_2F = 2;
         FLOOR_3F = 3;
     }
+    
+    enum GameResult {
+        GAME_RESULT_NONE = 0;
+        WIN = 1;
+        LOSE = 2;
+        DRAW = 3;
+    }
 }
 
 message Define_Common {
@@ -360,10 +367,12 @@ message Operate {
         POLICY_RANDOM_MATCHMAKING_ON_OFF = 53;
         POLICY_ALLOW_EQUIPMENT_ITEMS_ON_OFF = 54;
         POLICY_ARENA_NO_DUPLICATE_CLASS_ACCESS = 55;
-        POLICY_RELIGION_WEEKLY_RESET_DAY = 56;
         POLICY_MULTI_CLASS_SYSTEM_ON_OFF = 57;
         POLICY_MERCHANT_BUY_BULK_LIMIT_COUNT = 58;
         POLICY_ARENA_ENABLED = 59;
+        POLICY_ARENA_NO_SQUIRE_ACCESS = 60;
+        POLICY_MATCHING_ITEM_RARITY_TYPE_ARENA = 61;
+        POLICY_RANDOM_MATCHMAKING_ON_OFF_ARENA_TYPE = 62;
     }
 }
 
@@ -488,6 +497,7 @@ message Define_Reward {
         Affinity = 9;
         Stash = 10;
         ArmorSkin = 11;
+        RewardToken = 12;
     }
 }
 

@@ -25,6 +25,7 @@ message SLOGIN_CHARACTER_INFO {
     repeated string equipCharacterSkinList = 9;
     repeated string equipItemSkinList = 10;
     repeated string equipArmorSkinList = 11;
+    uint32 isLock = 12;
 }
 
 message SC2S_ACCOUNT_LOGIN_REQ {
@@ -57,6 +58,7 @@ message SS2C_ACCOUNT_LOGIN_RES {
     int32 userLoginInfo = 16;
     int32 usePlatformLink = 17;
     ACCOUNT_REDIRECTION_INFO redirectionInfo = 18;
+    int32 gameType = 19;
     
     enum RESULT {
         RESULT_NONE = 0;

@@ -5,34 +5,34 @@ if (${Protobuf_FOUND})
 endif()
 
 set(PROTO_FILES
-    Account.proto
-    Agent.proto
-    CharacterClass.proto
-    _Character.proto
-    _Chat.proto
-    Common.proto
-    Customize.proto
-    DediServer.proto
-    _Defins.proto
-    Friend.proto
-    GatheringHall.proto
-    Gm.proto
-    InGame.proto
-    Inventory.proto
-    IronMace.proto
-    _Item.proto
-    Karma.proto
-    Lobby.proto
-    MarketPlace.proto
-    Merchant.proto
-    Operate.proto
-    _PacketCommand.proto
-    Party.proto
-    Ranking.proto
-    Religion.proto
-    _Reward.proto
-    Shop.proto
-    Trade.proto
+	Account.proto
+	Agent.proto
+	CharacterClass.proto
+	_Character.proto
+	_Chat.proto
+	Common.proto
+	Customize.proto
+	DediServer.proto
+	_Defins.proto
+	Friend.proto
+	GatheringHall.proto
+	Gm.proto
+	InGame.proto
+	Inventory.proto
+	IronMace.proto
+	_Item.proto
+	Karma.proto
+	Lobby.proto
+	MarketPlace.proto
+	Merchant.proto
+	Operate.proto
+	_PacketCommand.proto
+	Party.proto
+	Ranking.proto
+	Religion.proto
+	_Reward.proto
+	Shop.proto
+	Trade.proto
 )
 
 add_library(protos ${PROTO_FILES})

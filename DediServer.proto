@@ -22,6 +22,19 @@ message SGameQuestInfo {
     repeated SGameQuestContentInfo infos = 5;
 }
 
+message ReservedPartyMember {
+    string accountId = 1;
+    SACCOUNT_NICKNAME nickname = 2;
+}
+
+message SReservedPartyMember {
+    string accountId = 1;
+    bytes nickname = 2;
+    bytes streamingNickName = 3;
+    int32 karmaRating = 4;
+    string characterClass = 5;
+}
+
 message S2C_GameEnterUser_Json {
     string restUrl = 1;
     bytes nickName = 2;
@@ -32,6 +45,7 @@ message S2C_GameEnterUser_Json {
     uint32 level = 7;
     string partyId = 8;
     int32 karmaRating = 9;
+    repeated SReservedPartyMember reservedPartyMember = 10;
 }
 
 message GameExitAdvPoint {
@@ -182,8 +196,9 @@ message S2C_GameCharacterInfo_Json {
     int32 gearScore = 25;
     int32 expressItemCount = 26;
     int32 maxSendExpressCount = 27;
-    string religionId = 28;
-    int32 blessingLv = 29;
+    string religionSeasonId = 28;
+    string religionId = 29;
+    int32 blessingLv = 30;
 }
 
 message C2S_GameAliveCheck_GET {
@@ -430,6 +445,7 @@ message C2S_Arena_Result_POST {
     repeated SItem items = 2;
     string secretId = 3;
     int32 isWinner = 4;
+    int32 resultStatus = 5;
 }
 
 message C2S_Arena_Exit_POST {
@@ -437,6 +453,12 @@ message C2S_Arena_Exit_POST {
     string characterId = 2;
     uint64 gameId = 3;
     string secretId = 4;
+}
+
+message C2S_Arena_Surrender_POST {
+    GameResultInfo resultInfo = 1;
+    repeated SItem items = 2;
+    string secretId = 3;
 }
 
 message C2S_Game_Finalize_Session_POST {
