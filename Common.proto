@@ -171,11 +171,14 @@ message SC2S_WHISPER_CHAT_REQ {
 
 message SS2C_WHISPER_CHAT_RES {
     uint32 result = 1;
+    uint64 chatIdx = 2;
+    int32 banDurationMin = 3;
 }
 
 message SS2C_WHISPER_CHAT_NOT {
     SCHATDATA chatData = 1;
     uint64 time = 2;
+    uint64 chatIdx = 3;
 }
 
 message SS2C_ACCOUNT_STATUS_NOT {
@@ -218,6 +221,14 @@ message SC2S_PLATFORM_LINK_FAQ_URL_REQ {
 }
 
 message SS2C_PLATFORM_LINK_FAQ_URL_RES {
+    string faqUrl = 1;
+}
+
+message SC2S_PLATFORM_LINK_SELECT_FAQ_URL_REQ {
+    
+}
+
+message SS2C_PLATFORM_LINK_SELECT_FAQ_URL_RES {
     string faqUrl = 1;
 }
 
@@ -264,4 +275,33 @@ message SC2S_DLC_INSTALLED_CHECK_REQ {
 
 message SS2C_DLC_INSTALLED_CHECK_RES {
     
+}
+
+message SC2S_REPORT_CHAT_REQ {
+    uint32 chatType = 1;
+    uint64 chatIdx = 2;
+    uint32 hackType = 3;
+    string targetAccountId = 4;
+    string message = 5;
+    string targetNickname = 6;
+}
+
+message SS2C_REPORT_CHAT_RES {
+    uint32 result = 1;
+}
+
+message SDUNGEON_GEAR_POOL_INFO {
+    uint32 gearPoolIndex = 1;
+    int32 minIncludingValue = 2;
+    int32 maxIncludingValue = 3;
+}
+
+message SOPEN_DUNGEON_INFO {
+    uint32 dungeonIndex = 1;
+    uint32 gameType = 2;
+    repeated SDUNGEON_GEAR_POOL_INFO gearPoolInfos = 3;
+}
+
+message SS2C_OPEN_DUNGEON_INFO_NOT {
+    repeated SOPEN_DUNGEON_INFO infos = 1;
 }

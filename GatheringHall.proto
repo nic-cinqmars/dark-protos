@@ -80,6 +80,7 @@ message SC2S_GATHERING_HALL_CHANNEL_CHAT_REQ {
 message SS2C_GATHERING_HALL_CHANNEL_CHAT_RES {
     uint32 result = 1;
     repeated SGATHERING_HALL_CHAT_S2C chats = 2;
+    int32 banDurationMin = 3;
 }
 
 message SS2C_GATHERING_HALL_CHANNEL_CHAT_NOT {

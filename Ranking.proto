@@ -58,6 +58,7 @@ message SRankRecord {
     string accountId = 5;
     SACCOUNT_NICKNAME nickName = 6;
     string characterClass = 7;
+    string characterId = 8;
 }
 
 message SC2S_RANKING_RANGE_REQ {
@@ -107,7 +108,8 @@ message SS2C_RANKING_CHARACTER_RES {
     uint32 allRowCount = 6;
     string characterClass = 7;
     uint32 playGameCount = 8;
-    uint32 batchGameCount = 9;
+    uint32 placementGameCount = 9;
+    uint32 mmrRating = 10;
 }
 
 message SC2S_RANKING_AP_CONFIG_REQ {
@@ -118,6 +120,7 @@ message SC2S_RANKING_AP_CONFIG_REQ {
 message SRANKING_AP_CONFIG_RECORD {
     string rankAPId = 1;
     int32 requiredTotalAP = 2;
+    int32 requiredTopRank = 3;
 }
 
 message SRANKING_EF_CONFIG_RECORD {
@@ -151,6 +154,7 @@ enum RANKING_TYPE {
     Slayer_SkeletonWarlord = 7;
     Slayer_CaveTroll = 8;
     Slayer_BossAll = 9;
+    Arena = 10;
 }
 
 enum CONTENT_TYPE {
@@ -160,4 +164,5 @@ enum CONTENT_TYPE {
     ESCAPE_ARTIST = 3;
     VETERAN_ADVENTURER = 4;
     SLAYER = 5;
+    ARENA = 6;
 }

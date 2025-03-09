@@ -55,6 +55,7 @@ message SCHARACTER_PARTY_INFO {
     uint32 partyIdx = 12;
     repeated SPerk perks = 13;
     uint32 gearScore = 14;
+    string lobbySkinId = 15;
 }
 
 message SCHARACTER_TRADE_INFO {
@@ -74,6 +75,10 @@ message SACCOUNT_NICKNAME {
     int32 karmaRating = 3;
     string rankId = 4;
     uint32 fame = 5;
+    string nameplateSkinId = 6;
+    uint32 rankIconType = 7;
+    string adventureRankId = 8;
+    string arenaRankId = 9;
 }
 
 message SBLOCK_CHARACTER {
@@ -114,6 +119,25 @@ message SCHARACTER_LAST_GAME_INFO {
     string characterId = 4;
     string characterClass = 5;
     int32 gender = 6;
+}
+
+message SArenaUserStat {
+    int32 kill = 1;
+    int32 death = 2;
+    int32 assist = 3;
+    double headshot = 4;
+    int32 totalDamage = 5;
+    int32 totalHealing = 6;
+}
+
+message SArenaGameResultRecord {
+    int32 teamType = 1;
+    uint64 characterId = 2;
+    string characterClass = 3;
+    string characterNickname = 4;
+    string streamingModeNickName = 5;
+    SArenaUserStat stat = 6;
+    int32 isSurrender = 7;
 }
 
 enum Friend_Location {

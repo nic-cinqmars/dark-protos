@@ -13,11 +13,17 @@ message SCHATDATA_PIECE_ITEM_PROPERTY {
     int32 pv = 2;
 }
 
+message SCHATDATA_PIECE_ITEM_ENCHANT_INFO {
+    uint32 pidx = 1;
+    string miid = 2;
+}
+
 message SCHATDATA_PIECE_ITEM {
     uint64 uid = 1;
     string iid = 2;
     repeated SCHATDATA_PIECE_ITEM_PROPERTY pp = 3;
     repeated SCHATDATA_PIECE_ITEM_PROPERTY sp = 4;
+    repeated SCHATDATA_PIECE_ITEM_ENCHANT_INFO se = 5;
 }
 
 message SCHATDATA_PIECE {

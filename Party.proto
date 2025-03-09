@@ -119,6 +119,8 @@ message SS2C_PARTY_ARMOR_SKIN_CHANGE_NOT {
 
 message SS2C_PARTY_GAME_TYPE_CHANGE_NOT {
     uint32 gameTypeIndex = 1;
+    string dungeonIdTag = 2;
+    int32 gearPoolIndex = 3;
 }
 
 message SC2S_PARTY_MEMBER_KICK_REQ {
@@ -136,11 +138,13 @@ message SC2S_PARTY_CHAT_REQ {
 
 message SS2C_PARTY_CHAT_RES {
     uint32 result = 1;
+    int32 banDurationMin = 2;
 }
 
 message SS2C_PARTY_CHAT_NOT {
     SCHATDATA chatData = 1;
     uint64 time = 2;
+    uint64 chatIdx = 3;
 }
 
 message SS2C_PARTY_READY_CHANGE_NOT {
@@ -185,6 +189,31 @@ message SS2C_PARTY_RANDOM_MATCHMAKING_NOT {
 
 message SS2C_PARTY_LAST_GAME_MEMBER_INFO_NOT {
     repeated SCHARACTER_LAST_GAME_INFO infos = 1;
+}
+
+message SC2S_PARTY_REQUEST_REQ {
+    SACCOUNT_NICKNAME findNickName = 1;
+    string findAccountId = 2;
+    string findCharacterId = 3;
+}
+
+message SS2C_PARTY_REQUEST_RES {
+    uint32 result = 1;
+}
+
+message SS2C_PARTY_REQUEST_NOT {
+    SACCOUNT_NICKNAME requestNickName = 1;
+    string requestAccountId = 2;
+    string requestCharacterId = 3;
+}
+
+message SC2S_PARTY_DUNGEON_CHAT_REQ {
+    SCHATDATA chatData = 1;
+    uint64 chatIdx = 2;
+}
+
+message SS2C_PARTY_DUNGEON_CHAT_RES {
+    
 }
 
 enum PARTY_INVITE_ANSWER {

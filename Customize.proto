@@ -56,3 +56,11 @@ message SS2C_CUSTOMIZE_NEW_ITEM_CHECK_RES {
 message SS2C_CUSTOMIZE_NEW_ITEM_ALERT_NOT {
     
 }
+
+message SC2S_CUSTOMIZE_UPDATE_SKIN_ICON_TYPE_REQ {
+    uint32 skinIconType = 1;
+}
+
+message SS2C_CUSTOMIZE_UPDATE_SKIN_ICON_TYPE_RES {
+    uint32 result = 1;
+}

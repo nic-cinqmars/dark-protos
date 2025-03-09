@@ -14,24 +14,6 @@ message SItemMeta {
     uint32 AvailableValue = 5;
 }
 
-message SDownItem {
-    uint64 itemUniqueId = 1;
-    string itemId = 2;
-    uint32 itemCount = 3;
-    uint32 inventoryId = 4;
-    uint32 slotId = 5;
-    uint32 bEquipped = 6;
-    uint32 itemAmmoCount = 7;
-    uint32 itemContentsCount = 8;
-    SItemMeta metaItem = 9;
-    repeated SItemProperty primaryPropertyArray = 10;
-    repeated SItemProperty secondaryPropertyArray = 11;
-    int32 lootState = 12;
-    int32 originType = 13;
-    string originNickName = 14;
-    string originSteamingModeNickName = 15;
-}
-
 message SItem {
     uint64 itemUniqueId = 1;
     string itemId = 2;
@@ -46,6 +28,7 @@ message SItem {
     int32 originType = 12;
     string originNickName = 13;
     string originSteamingModeNickName = 14;
+    repeated SItemEnchantInfo secondaryEnchantArray = 15;
 }
 
 message SItemProperties {
@@ -55,6 +38,15 @@ message SItemProperties {
 message SItemProperty {
     string propertyTypeId = 1;
     int32 propertyValue = 2;
+}
+
+message SItemEnchantInfo {
+    uint32 propertyIndex = 1;
+    string materialItemId = 2;
+}
+
+message SItemEnchantInfos {
+    repeated SItemEnchantInfo enchantInfos = 1;
 }
 
 message SItems {
@@ -122,6 +114,18 @@ message SCUSTOMIZE_ACTION {
 message SCUSTOMIZE_LOBBY_EMOTE {
     string lobbyEmoteId = 1;
     int32 equipSlotIndex = 2;
+    int32 isNew = 3;
+}
+
+message SCUSTOMIZE_LOBBY_SKIN {
+    string lobbySkinId = 1;
+    int32 isEquip = 2;
+    int32 isNew = 3;
+}
+
+message SCUSTOMIZE_NAMEPLATE {
+    string nameplateSkinId = 1;
+    int32 isEquip = 2;
     int32 isNew = 3;
 }
 

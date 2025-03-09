@@ -97,6 +97,8 @@ message SC2S_TRADE_CHANNEL_CHAT_REQ {
 message SS2C_TRADE_CHANNEL_CHAT_RES {
     uint32 result = 1;
     repeated STRADE_CHAT_S2C chats = 2;
+    int32 banDurationMin = 3;
+    uint64 chatIdx = 4;
 }
 
 message SC2S_TRADE_CHANNEL_CHAT_TEXT_RANGE_REQ {
@@ -176,6 +178,7 @@ message SC2S_TRADING_CHAT_REQ {
 message SS2C_TRADING_CHAT_RES {
     uint32 result = 1;
     STRADE_CHAT_S2C chat = 2;
+    int32 banDurationMin = 3;
 }
 
 message SC2S_TRADING_ITEM_UPDATE_REQ {

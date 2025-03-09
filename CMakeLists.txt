@@ -6,6 +6,7 @@ endif()
 
 set(PROTO_FILES
 	Account.proto
+	Achievement.proto
 	Agent.proto
 	CharacterClass.proto
 	_Character.proto

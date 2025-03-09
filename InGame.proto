@@ -22,6 +22,8 @@ message SC2S_AUTO_MATCH_REG_REQ {
     uint32 region = 2;
     uint32 gameType = 3;
     int32 isRandomMatchmaking = 4;
+    string dungeonIdTag = 5;
+    uint32 gearPoolIndex = 6;
     
     enum MODE {
         NONE = 0;
@@ -58,6 +60,10 @@ message SS2C_AUTO_MATCH_REG_RES {
         FAIL_ON_EQUIPMENT_ITEM_IN_INVENTORY = 20;
         FAIL_NO_DUPLICATE_CLASS_ACCESS = 21;
         FAIL_ARENA_SCHEDULE_CLOSED = 22;
+        FAIL_MATCH_RESTRICTION_ARENA_SURRENDER = 23;
+        FAIL_FAIL_MAX_GEAR_SCORE_LIMIT = 24;
+        FAIL_NOT_ALLOWED_PICKPOCKET_IN_ARENA = 25;
+        FAIL_MATCH_RESTRICTION_DUNGEON_LIVE_EXIT = 26;
     }
 }
 

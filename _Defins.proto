@@ -33,6 +33,12 @@ message Define_Account {
         ACCOUNT_STATUS_SQUIRE = 1;
         ACCOUNT_STATUS_LEGEND = 2;
     }
+    
+    enum LinkPlatformStatus {
+        LINK_PLATFORM_STATUS_NONE = 0;
+        LINK_PLATFORM_STATUS_SELECT_REQUIRED = 1;
+        LINK_PLATFORM_STATUS_READY_TO_LINK = 2;
+    }
 }
 
 message Define_Character {
@@ -45,6 +51,12 @@ message Define_Character {
     enum Limit {
         NONE_Limit = 0;
         MAX_COUNT = 8;
+    }
+    
+    enum RankIconType {
+        RANK_ICON_TYPE_NONE = 0;
+        ADVENTURE = 1;
+        ARENA = 2;
     }
 }
 
@@ -69,7 +81,10 @@ message Define_Item {
         PURCHASED_STORAGE_3 = 8;
         PURCHASED_STORAGE_4 = 9;
         SHARED_STASH_0 = 20;
-        MAX = 30;
+        GEAR_SET_0 = 100;
+        GEAR_SET_1 = 101;
+        GEAR_SET_2 = 102;
+        MAX = 300;
     }
     
     enum rarityType {
@@ -124,6 +139,7 @@ message Define_Equipment {
         RING_A = 20;
         RING_B = 21;
         BACK = 22;
+        SASH = 23;
     }
 }
 
@@ -235,6 +251,13 @@ message Define_Game {
         WIN = 1;
         LOSE = 2;
         DRAW = 3;
+        CANCELED = 4;
+    }
+    
+    enum ArenaTeamType {
+        NONE_TEAM = 0;
+        RED = 1;
+        BLUE = 2;
     }
 }
 
@@ -289,6 +312,9 @@ message Define_Chat {
         NONE_TYPE = 0;
         NORMAL = 1;
         WHISPER = 2;
+        PARTY = 3;
+        TRADE = 4;
+        GATHERING_HALL = 5;
     }
     
     enum RoomType {
@@ -327,7 +353,7 @@ message Operate {
         POLICY_HIGH_ROLLER_ENTRANCE_MIN_LEVEL = 12;
         POLICY_GOBLIN_HIGH_ROLLER_ENTRANCE_FEE = 13;
         POLICY_GOBLIN_HIGH_ROLLER_ENTRANCE_MIN_LEVEL = 14;
-        POLICY_MAX_RANK_BATCH_GAME_COUNT = 15;
+        POLICY_MAX_RANK_PLACEMENT_GAME_COUNT = 15;
         POLICY_ITEM_RARITY_TYPE_NORMAL_VALUE = 16;
         POLICY_ITEM_RARITY_TYPE_HIGH_ROLLER_VALUE = 17;
         POLICY_ITEM_RARITY_TYPE_RUINS_VALUE = 18;
@@ -373,6 +399,10 @@ message Operate {
         POLICY_ARENA_NO_SQUIRE_ACCESS = 60;
         POLICY_MATCHING_ITEM_RARITY_TYPE_ARENA = 61;
         POLICY_RANDOM_MATCHMAKING_ON_OFF_ARENA_TYPE = 62;
+        POLICY_ARENA_ENTRY_LIMIT_LEVEL = 63;
+        POLICY_GBMM_NORMAL_UPPER_LIMIT = 64;
+        POLICY_GBMM_HIGH_ROLLER_UPPER_LIMIT = 65;
+        POLICY_RELIGION_SYSTEM_ON_OFF = 66;
     }
 }
 
@@ -384,27 +414,17 @@ message Define_Hack {
         GAME_HACK_POLICY_KICK_AND_BLOCK = 3;
     }
     
-    enum banType {
-        NONE_BAN_TYPE = 0;
-        Cheater = 1;
-        InappropriateName = 2;
-        Etc = 3;
-        RmtUser = 4;
-        RmtSpam = 5;
-        AbnormalDetection = 6;
-        CheaterGroup = 7;
-        ExploitAbuser = 8;
-        AbnormalScreen = 9;
-        Teaming = 10;
-        StreamSniping = 11;
-        InappropriateChat = 12;
-        InappropriateVoip = 13;
-        RacistName = 14;
-        RacistChat = 15;
-        RacistVoip = 16;
-        Refund_Abuse = 17;
-        AbnormalChat = 18;
-        Investigation = 19;
+    enum BanPeriodType {
+        NONE_BAN_PERIOD_TYPE = 0;
+        PERMANENT = 1;
+        SEASONAL = 2;
+        TEMPORARY = 3;
+    }
+    
+    enum EasyPool {
+        NONE_EasyPool = 0;
+        Normal = 1;
+        Easy = 2;
     }
 }
 
@@ -464,6 +484,8 @@ message Define_Shop {
         LOBBY_EMOTE = 5;
         CLASS_PACKAGE = 6;
         ARMOR_SKIN = 7;
+        LOBBY_SKIN = 8;
+        NAMEPLATE = 9;
     }
     
     enum PaymentMethod {
@@ -498,6 +520,10 @@ message Define_Reward {
         Stash = 10;
         ArmorSkin = 11;
         RewardToken = 12;
+        LegendaryStatus = 13;
+        LobbySkin = 14;
+        Random = 15;
+        NameplateSkin = 16;
     }
 }
 

@@ -3,6 +3,8 @@ syntax = "proto3";
 package DC.Packet;
 
 import "_Item.proto";
+import "Shop.proto";
+import "Inventory.proto";
 
 option java_multiple_files = false;
 option java_outer_classname = "merchant";
@@ -203,6 +205,7 @@ message SS2C_MERCHANT_QUEST_COMPLETE_RES {
     string givenMerchantId = 2;
     string givenQuestId = 3;
     string givenChapterId = 4;
+    repeated SREWARD_INFO rewards = 5;
 }
 
 message SC2S_MERCHANT_QUEST_CONTENT_VALUE_STACK_REQ {
@@ -306,7 +309,7 @@ message SS2C_MERCHANT_RECOVERY_LIST_RES {
 }
 
 message SC2S_MERCHANT_RECOVERY_BUY_REQ {
-    uint64 recoveryUniqueId = 1;
+    repeated uint64 recoveryUniqueId = 1;
     repeated MERCHANT_TRADE_ITEM_INFO dealItemList = 2;
     repeated SMERCHANT_TRADE_SLOT_INFO merchantSlotInfo = 3;
 }
@@ -365,7 +368,7 @@ message SS2C_MERCHANT_EXPRESS_LIST_RES {
 }
 
 message SC2S_MERCHANT_EXPRESS_BUY_REQ {
-    uint64 expressUniqueId = 1;
+    repeated uint64 expressUniqueIds = 1;
     repeated MERCHANT_TRADE_ITEM_INFO dealItemList = 2;
     repeated SMERCHANT_TRADE_SLOT_INFO merchantSlotInfo = 3;
 }
@@ -385,4 +388,81 @@ message SMERCHANT_EXPRESS_ITEM_INFO {
 
 message SS2C_MERCHANT_EXPRESS_ITEM_CHECK_NOT {
     uint32 expressFlag = 1;
+}
+
+message SC2S_MERCHANT_ITEM_SOCKET_ENCHANT_REQ {
+    uint64 targetItemId = 1;
+    string targetPropertyTypeId = 2;
+    string replacePropertyTypeId = 3;
+    repeated MERCHANT_TRADE_ITEM_INFO materialItemList = 4;
+}
+
+message SS2C_MERCHANT_ITEM_SOCKET_ENCHANT_RES {
+    uint32 result = 1;
+    SItem enchantedItem = 2;
+    SMERCHANT_RESULT_INFO merchantResult = 3;
+}
+
+message SMERCHANT_GEAR_SET_INVENTORY_STASH_MOVE_INFO {
+    SINVENTORY_ITEM_REQ_INFO gearSetSrcInfo = 1;
+    SINVENTORY_ITEM_REQ_INFO gearSetMergeDstInfo = 2;
+    uint32 mergeCount = 3;
+    uint32 dstInventoryId = 4;
+    uint32 dstSlotId = 5;
+}
+
+message SMERCHANT_GEAR_SET_EQUIPMENT_MOVE_INFO {
+    SINVENTORY_ITEM_REQ_INFO moveSrcInfo = 1;
+    uint32 moveDstInventoryId = 2;
+    uint32 moveDstSlotId = 3;
+}
+
+message SMERCHANT_GEAR_SET_EQUIPMENT_SWAP_INFO {
+    SINVENTORY_ITEM_REQ_INFO srcInfo = 1;
+    SINVENTORY_ITEM_REQ_INFO dstInfo = 2;
+    repeated INVENTORY_SWAP_DST_INFO targetInfos = 3;
+}
+
+message SC2S_MERCHANT_GEAR_SET_SWAP_REQ {
+    uint32 gearSetInventoryId = 1;
+}
+
+message SS2C_MERCHANT_GEAR_SET_SWAP_RES {
+    uint32 gearSetInventoryId = 1;
+    repeated SItem gearSetItems = 2;
+    repeated SItem equipmentItems = 3;
+    repeated SItem inventoryAndStashItems = 4;
+    int32 result = 5;
+}
+
+message SC2S_MERCHANT_GEAR_SET_INITIALIZE_REQ {
+    uint32 gearSetInventoryId = 1;
+    repeated SMERCHANT_GEAR_SET_INVENTORY_STASH_MOVE_INFO gearSetMoveInfos = 2;
+}
+
+message SS2C_MERCHANT_GEAR_SET_INITIALIZE_RES {
+    uint32 gearSetInventoryId = 1;
+    repeated SItem inventoryAndStashItems = 2;
+    int32 result = 3;
+}
+
+message SC2S_MERCHANT_GEAR_SET_SAVE_REQ {
+    
+}
+
+message SS2C_MERCHANT_GEAR_SET_SAVE_RES {
+    int32 result = 1;
+}
+
+message SMERCHANT_GEAR_SET_INFO {
+    uint32 gearSetInventoryId = 1;
+    repeated SItem items = 2;
+}
+
+message SC2S_MERCHANT_GEAR_SET_LIST_REQ {
+    
+}
+
+message SS2C_MERCHANT_GEAR_SET_LIST_RES {
+    repeated SMERCHANT_GEAR_SET_INFO gearSets = 1;
 }

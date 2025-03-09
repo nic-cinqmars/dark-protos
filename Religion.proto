@@ -90,6 +90,7 @@ message SS2C_RELIGION_UPDATE_OFFERING_RES {
     string religionId = 3;
     uint64 offering = 4;
     uint64 totalOffering = 5;
+    uint64 accountSeasonTotalOffering = 6;
 }
 
 message SC2S_RELIGION_KILL_COUNT_LIST_REQ {
@@ -117,7 +118,7 @@ message SC2S_RELIGION_GET_SEASON_INFO_REQ {
     
 }
 
-message religion_season_data {
+message SRELIGION_SEASON_INFO {
     string seasonId = 1;
     string religionId = 2;
     uint32 blessingLevel = 3;
@@ -128,5 +129,56 @@ message religion_season_data {
 
 message SS2C_RELIGION_GET_SEASON_INFO_RES {
     uint32 result = 1;
-    repeated religion_season_data data = 2;
+    repeated SRELIGION_SEASON_INFO data = 2;
+    repeated string currentSeasonIds = 3;
+}
+
+message SRELIGION_REWARD_INFO {
+    string rewardId = 1;
+    string rewardType = 2;
+    uint32 rewardCount = 3;
+}
+
+message SRELIGION_OFFERING_REWARD_INFO {
+    string offeringRewardId = 1;
+    uint32 offeringCount = 2;
+    uint32 hasReceivedReward = 3;
+    uint64 rewardClaimRemainingTime = 4;
+    repeated SRELIGION_REWARD_INFO rewards = 5;
+}
+
+message SRELIGION_REWARD_ID_INFO {
+    string offeringRewardId = 1;
+}
+
+message SC2S_RELIGION_REWARD_LIST_REQ {
+    string seasonId = 1;
+}
+
+message SS2C_RELIGION_REWARD_LIST_RES {
+    uint32 result = 1;
+    string seasonId = 2;
+    uint64 accountSeasonTotalOffering = 3;
+    repeated SRELIGION_OFFERING_REWARD_INFO data = 4;
+}
+
+message SC2S_RELIGION_REWARD_GET_REQ {
+    string seasonId = 1;
+    string offeringRewardId = 2;
+}
+
+message SS2C_RELIGION_REWARD_GET_RES {
+    uint32 result = 1;
+    string seasonId = 2;
+    string offeringRewardId = 3;
+}
+
+message SC2S_RELIGION_REWARD_CHECK_REQ {
+    string seasonId = 1;
+}
+
+message SS2C_RELIGION_REWARD_CHECK_RES {
+    uint32 result = 1;
+    string seasonId = 2;
+    repeated SRELIGION_REWARD_ID_INFO data = 3;
 }

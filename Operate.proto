@@ -145,6 +145,7 @@ message Operate_ban_user_info {
     string banType = 2;
     string comment = 3;
     string registerDate = 4;
+    uint64 banPeriodType = 5;
 }
 
 message Operate_ban_user_info_list {
@@ -169,6 +170,7 @@ message Operate_Ban_User {
     string reason = 3;
     uint32 banType = 4;
     uint32 banTime_min = 5;
+    uint32 banPeriodType = 6;
 }
 
 message Operate_Ban_User2 {
@@ -182,6 +184,7 @@ message Operate_Ban_User2 {
     uint32 isRankReset = 8;
     uint32 isRankRecovery = 9;
     uint64 logIdx = 10;
+    uint32 banPeriodType = 11;
 }
 
 message Operate_Ban_Hardware {
@@ -233,6 +236,7 @@ message Operate_OperateBanUserInfos {
     string endTime = 6;
     string registerTime = 7;
     string isHardwareBan = 8;
+    uint32 banPeriodType = 9;
 }
 
 message Operate_OperateLoginLogInfo {
@@ -272,6 +276,7 @@ message Operate_OperateBanInfo {
     string registerTime = 4;
     string beginTime = 5;
     string endTime = 6;
+    uint32 banPeriodType = 7;
 }
 
 message Operate_OperateBanHardwareInfo {
@@ -323,6 +328,7 @@ message ReasonSearchBanUserInfo {
     string endTime = 7;
     string registerTime = 8;
     uint64 sortTime = 9;
+    uint64 banPeriodType = 10;
 }
 
 message Operate_SearchHackReasonResult {
@@ -345,6 +351,7 @@ message Operate_HackUserBanBulk {
     string jiraId = 5;
     uint32 withLoginHardwareBan = 6;
     uint64 logIdx = 7;
+    uint32 banPeriodType = 8;
 }
 
 message Operate_HackUserUnbanBulk {
