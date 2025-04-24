@@ -29,6 +29,8 @@ message SItem {
     string originNickName = 13;
     string originSteamingModeNickName = 14;
     repeated SItemEnchantInfo secondaryEnchantArray = 15;
+    int32 tradable = 16;
+    repeated SItemPermitted permittedAreaArray = 17;
 }
 
 message SItemProperties {
@@ -47,6 +49,14 @@ message SItemEnchantInfo {
 
 message SItemEnchantInfos {
     repeated SItemEnchantInfo enchantInfos = 1;
+}
+
+message SItemPermittedInfos {
+    repeated SItemPermitted permittedList = 1;
+}
+
+message SItemPermitted {
+    int32 type = 1;
 }
 
 message SItems {

@@ -8,9 +8,15 @@ option java_multiple_files = false;
 option java_outer_classname = "character";
 option java_package = "com.packets.character";
 
+message SCHARACTER_RANK_INFO {
+    uint32 gameType = 1;
+    string rankId = 2;
+}
+
 message SSTORAGE_INFO {
     uint32 inventoryId = 1;
     repeated SItem CharacterStorageItemList = 2;
+    int32 storageStatus = 3;
 }
 
 message SCHARACTER_INFO {
@@ -25,6 +31,7 @@ message SCHARACTER_INFO {
     repeated SItem CharacterItemList = 9;
     repeated SItem CharacterStorageItemList = 10;
     repeated SSTORAGE_INFO CharacterStorageInfos = 11;
+    repeated SCHARACTER_RANK_INFO rankInfos = 12;
 }
 
 message SCHARACTER_FRIEND_INFO {
@@ -56,6 +63,9 @@ message SCHARACTER_PARTY_INFO {
     repeated SPerk perks = 13;
     uint32 gearScore = 14;
     string lobbySkinId = 15;
+    uint32 mmrRating = 16;
+    uint32 remainPlacementCount = 17;
+    repeated SCHARACTER_RANK_INFO rankInfos = 18;
 }
 
 message SCHARACTER_TRADE_INFO {

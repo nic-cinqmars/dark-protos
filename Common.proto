@@ -73,7 +73,7 @@ message SS2C_SERVICE_POLICY_NOT {
 }
 
 message SC2S_RE_LOGIN_REQ {
-    
+    string eulaHash = 1;
 }
 
 message SS2C_RE_LOGIN_RES {
@@ -82,6 +82,7 @@ message SS2C_RE_LOGIN_RES {
     string sessionId = 3;
     string accountId = 4;
     int32 gameType = 5;
+    int32 eulaAgreementStatus = 6;
 }
 
 message SS2C_CLOSED_GAME_NOT {
@@ -181,8 +182,26 @@ message SS2C_WHISPER_CHAT_NOT {
     uint64 chatIdx = 3;
 }
 
+message SACCOUNT_OWNED_DLC_INFO {
+    string dlcId = 1;
+    int64 expireSec = 2;
+}
+
 message SS2C_ACCOUNT_STATUS_NOT {
     uint32 accountStatus = 1;
+    repeated SACCOUNT_OWNED_DLC_INFO ownedDlcInfos = 2;
+}
+
+message SDLC_INFO {
+    string dlcId = 1;
+    int32 saleStatus = 2;
+    int64 beginDateMS = 3;
+    int64 endDateMS = 4;
+}
+
+message SS2C_DLC_INFO_NOT {
+    repeated SDLC_INFO dlcInfos = 1;
+    int64 currentDateMS = 2;
 }
 
 message SC2S_PLATFORM_LINK_CODE_GEN_REQ {
@@ -270,11 +289,13 @@ message SS2C_ARENA_SCHEDULE_NOT {
 }
 
 message SC2S_DLC_INSTALLED_CHECK_REQ {
-    string dlcId = 1;
+    int32 dlcType = 1;
 }
 
 message SS2C_DLC_INSTALLED_CHECK_RES {
-    
+    int32 result = 1;
+    int32 dlcType = 2;
+    repeated SACCOUNT_DLC_INSTALL_INFO dlcInstallInfos = 3;
 }
 
 message SC2S_REPORT_CHAT_REQ {
@@ -304,4 +325,9 @@ message SOPEN_DUNGEON_INFO {
 
 message SS2C_OPEN_DUNGEON_INFO_NOT {
     repeated SOPEN_DUNGEON_INFO infos = 1;
+}
+
+message SACCOUNT_DLC_INSTALL_INFO {
+    uint32 dlcType = 1;
+    uint64 dlcPurchasedElapsedTimeMs = 2;
 }

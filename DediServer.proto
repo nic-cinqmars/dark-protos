@@ -20,6 +20,7 @@ message SGameQuestInfo {
     string chapterId = 3;
     int32 alreadyGetAffinity = 4;
     repeated SGameQuestContentInfo infos = 5;
+    int32 merchantAffinity = 6;
 }
 
 message IngameObjectiveInfo {
@@ -144,6 +145,9 @@ message S2C_GameStartServer_Json {
     uint32 spawnSearchRadiusPlayer = 30;
     uint32 spawnSearchRadiusMonster = 31;
     int32 easyPoolType = 32;
+    uint32 escapeFailAdventurePointOnOff = 33;
+    uint32 gearScoreIndex = 34;
+    uint32 dungeonGrade = 35;
     
     enum MATCH_MAKE {
         NONE = 0;
@@ -214,6 +218,7 @@ message SGameCharacterInfo {
     int32 chatBlockMin = 29;
     double mmr = 30;
     SACCOUNT_NICKNAME nickname = 31;
+    uint32 deathPenalty = 32;
 }
 
 message S2C_GameCharacterInfo_Json {
@@ -300,6 +305,7 @@ message GameResultInfo {
     string characterNickName = 26;
     string characterSteamingModeNickName = 27;
     repeated IngameObjectiveInfo objectives = 28;
+    uint32 escapeFailAdventurePointOnOff = 29;
 }
 
 message C2S_GameEscapeUser_POST {

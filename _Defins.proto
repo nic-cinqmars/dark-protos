@@ -38,6 +38,7 @@ message Define_Account {
         LINK_PLATFORM_STATUS_NONE = 0;
         LINK_PLATFORM_STATUS_SELECT_REQUIRED = 1;
         LINK_PLATFORM_STATUS_READY_TO_LINK = 2;
+        LINK_PLATFORM_STATUS_EPIC_MIGRATION = 3;
     }
 }
 
@@ -57,6 +58,35 @@ message Define_Character {
         RANK_ICON_TYPE_NONE = 0;
         ADVENTURE = 1;
         ARENA = 2;
+    }
+}
+
+message Define_Dlc {
+    enum DlcType {
+        NONE_DLC_TYPE = 0;
+        DLC_LEGENDARY = 1;
+        DLC_SEASONAL = 3;
+    }
+    
+    enum SlotType {
+        NONE_SLOT_TYPE = 0;
+        SLOT_DEFAULT = 1;
+        SLOT_LEGENDARY = 2;
+        SLOT_SEASONAL = 3;
+    }
+    
+    enum SlotStatus {
+        NONE_SLOT_STATUS = 0;
+        AVAILABLE = 1;
+        LOCKED = 2;
+        EXPIRED = 3;
+    }
+    
+    enum SaleStatus {
+        NONE_SALE_STATUS = 0;
+        NOT_YET_ON_SALE = 1;
+        ON_SALE = 2;
+        SAVE_EXPIRED = 3;
     }
 }
 
@@ -81,6 +111,7 @@ message Define_Item {
         PURCHASED_STORAGE_3 = 8;
         PURCHASED_STORAGE_4 = 9;
         SHARED_STASH_0 = 20;
+        SHARED_STASH_SEASONAL_0 = 30;
         GEAR_SET_0 = 100;
         GEAR_SET_1 = 101;
         GEAR_SET_2 = 102;
@@ -96,6 +127,7 @@ message Define_Item {
         EPIC = 5;
         LEGEND = 6;
         UNIQUE = 7;
+        ARTIFACT = 8;
     }
     
     enum LootState {
@@ -111,6 +143,13 @@ message Define_Item {
         NONE_ORIGIN = 0;
         FOUND_BY = 1;
         CRAFTED_BY = 2;
+    }
+    
+    enum PermittedAreaType {
+        NONE_PERMITTED_AREA_TYPE = 0;
+        ALL = 1;
+        DUNGEON_ONLY = 2;
+        TAVERN_ONLY = 3;
     }
 }
 
@@ -224,6 +263,7 @@ message Define_Game {
         MonsterKillAssist = 15;
         SubBossKillAssist = 16;
         BossKillAssist = 17;
+        DeathPenalty = 18;
     }
     
     enum GameType {
@@ -237,6 +277,9 @@ message Define_Game {
         ARENA_DUO = 7;
         ARENA_TRIO = 8;
         ARENA_SOLO = 9;
+        DUNGEON_SOLO_ADVENTURE = 10;
+        DUNGEON_DUO_ADVENTURE = 11;
+        DUNGEON_TRIO_ADVENTURE = 12;
     }
     
     enum Floor {
@@ -403,6 +446,15 @@ message Operate {
         POLICY_GBMM_NORMAL_UPPER_LIMIT = 64;
         POLICY_GBMM_HIGH_ROLLER_UPPER_LIMIT = 65;
         POLICY_RELIGION_SYSTEM_ON_OFF = 66;
+        POLICY_ARENA_NOT_LOST_SSF_ITEMS = 67;
+        POLICY_ARENA_NOT_LOST_UTILITY_ITEMS = 68;
+        POLICY_ARENA_RETAIN_ITEM_ON_TEAM_LOSS = 69;
+        POLICY_ARENA_PARTY_MMR_GAP = 70;
+        POLICY_REGION_REMOVAL_ON_OFF = 71;
+        POLICY_ITEM_RARITY_TYPE_SOLO_ADVENTURE_VALUE = 72;
+        POLICY_ITEM_RARITY_TYPE_DUO_ADVENTURE_VALUE = 73;
+        POLICY_ITEM_RARITY_TYPE_TRIO_ADVENTURE_VALUE = 74;
+        POLICY_TWITCH_DROPS_ON_OFF = 75;
     }
 }
 
@@ -524,6 +576,19 @@ message Define_Reward {
         LobbySkin = 14;
         Random = 15;
         NameplateSkin = 16;
+        CharacterSlotExpiration = 17;
+        MarketplaceSlot = 18;
+        SharedStash = 19;
+        DeliveryParcel = 20;
+    }
+}
+
+message Define_Contents {
+    enum ToggleContentType {
+        INVALID_TOGGLE_TYPE = 0;
+        TRADE_SYSTEM = 1;
+        MARKETPLACE = 2;
+        TRADING_POST = 3;
     }
 }
 

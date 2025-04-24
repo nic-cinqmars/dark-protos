@@ -36,7 +36,8 @@ message SS2C_MARKETPLACE_ITEM_LIST_RES {
 }
 
 message SC2S_MARKETPLACE_MY_ITEM_LIST_REQ {
-    
+    int32 currentPage = 1;
+    int32 perPage = 2;
 }
 
 message SMARKETPLACE_PRICE_INFO {
@@ -45,14 +46,26 @@ message SMARKETPLACE_PRICE_INFO {
 }
 
 message SMARKETPLACE_MY_ITEM_INFO {
-    SMARKETPLACE_ITEM_INFO itemInfo = 1;
-    int64 remainExpirationTime = 2;
-    int32 myItemState = 3;
-    repeated SMARKETPLACE_PRICE_INFO priceInfos = 4;
+    int32 orderIndex = 1;
+    SMARKETPLACE_ITEM_INFO itemInfo = 2;
+    int64 remainExpirationTime = 3;
+    int32 myItemState = 4;
+    repeated SMARKETPLACE_PRICE_INFO priceInfos = 5;
+}
+
+message SMARKETPLACE_MY_ITEM_SLOT_INFO {
+    int32 orderIndex = 1;
+    uint32 slotType = 2;
+    uint32 slotStatus = 3;
+    uint32 expireTimeSec = 4;
 }
 
 message SS2C_MARKETPLACE_MY_ITEM_LIST_RES {
     repeated SMARKETPLACE_MY_ITEM_INFO myItemInfos = 1;
+    repeated SMARKETPLACE_MY_ITEM_SLOT_INFO mySlotInfos = 2;
+    int32 totalItemCount = 3;
+    int32 currentPage = 4;
+    repeated int32 availableOrderIndexes = 5;
 }
 
 message SMARKETPLACE_TRADE_ITEM_INFO {

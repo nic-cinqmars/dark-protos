@@ -35,6 +35,7 @@ message SC2S_AUTO_MATCH_REG_REQ {
 message SS2C_AUTO_MATCH_REG_RES {
     uint32 result = 1;
     uint32 restrictionMS = 2;
+    string contentId = 3;
     
     enum RESULT {
         NONE = 0;
@@ -64,6 +65,11 @@ message SS2C_AUTO_MATCH_REG_RES {
         FAIL_FAIL_MAX_GEAR_SCORE_LIMIT = 24;
         FAIL_NOT_ALLOWED_PICKPOCKET_IN_ARENA = 25;
         FAIL_MATCH_RESTRICTION_DUNGEON_LIVE_EXIT = 26;
+        FAIL_PARTY_MMR_GAP_EXCEEDED = 27;
+        FAIL_LATENCY_CHECK_REQUIRED = 28;
+        FAIL_LATENCY_SYSTEM_SICK = 30;
+        FAIL_INVALID_ITEM_FOR_DUNGEON = 31;
+        FAIL_CONTENT_NOT_ALLOWED_FOR_MATCHING = 32;
     }
 }
 

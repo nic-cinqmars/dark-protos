@@ -59,6 +59,7 @@ message SC2S_PARTY_READY_REQ {
 message SS2C_PARTY_READY_RES {
     uint32 result = 1;
     uint32 restrictionMS = 2;
+    string contentId = 3;
 }
 
 message SS2C_PARTY_EQUIP_ITEM_CHANGE_NOT {

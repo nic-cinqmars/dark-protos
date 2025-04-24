@@ -24,6 +24,8 @@ message SMERCHANT_INFO {
         SUCCESS = 2;
         RECOVERY = 3;
         EXPRESS = 4;
+        NOTIFY = 5;
+        PARCEL = 6;
     }
 }
 
@@ -403,6 +405,40 @@ message SS2C_MERCHANT_ITEM_SOCKET_ENCHANT_RES {
     SMERCHANT_RESULT_INFO merchantResult = 3;
 }
 
+message SMERCHANT_STOCK_BUY_INFO {
+    uint64 stockUniqueId = 1;
+    repeated SMERCHANT_TRADE_SLOT_INFO merchantSlotInfo = 2;
+}
+
+message SC2S_MERCHANT_COCKATRICE_REWARD_ACCEPT_REQ {
+    repeated SMERCHANT_STOCK_BUY_INFO merchantSlotInfo = 1;
+}
+
+message SS2C_MERCHANT_COCKATRICE_REWARD_ACCEPT_RES {
+    int32 result = 1;
+    SMERCHANT_RESULT_INFO merchantResult = 2;
+    string givenItemId = 3;
+}
+
+message SS2C_MERCHANT_REWARD_ITEM_LIST_RES {
+    uint32 result = 1;
+    uint32 loopMessageFlag = 2;
+    repeated SMERCHANT_STOCK_BUY_ITEM_INFO stockList = 3;
+}
+
+message SC2S_MERCHANT_REWARD_ITEM_LIST_REQ {
+    string merchantId = 1;
+}
+
+message SS2C_MERCHANT_COCKATRICE_ITEM_CHECK_NOT {
+    uint32 itemCheckNotStatus = 1;
+    
+    enum Status {
+        NONE = 0;
+        REWARD = 1;
+    }
+}
+
 message SMERCHANT_GEAR_SET_INVENTORY_STASH_MOVE_INFO {
     SINVENTORY_ITEM_REQ_INFO gearSetSrcInfo = 1;
     SINVENTORY_ITEM_REQ_INFO gearSetMergeDstInfo = 2;
@@ -465,4 +501,63 @@ message SC2S_MERCHANT_GEAR_SET_LIST_REQ {
 
 message SS2C_MERCHANT_GEAR_SET_LIST_RES {
     repeated SMERCHANT_GEAR_SET_INFO gearSets = 1;
+}
+
+message SPARCEL_REWARD_INFO {
+    int32 rewardType = 1;
+    string rewardId = 2;
+    int32 rewardCount = 3;
+    SItem item = 4;
+}
+
+message SMERCHANT_DELIVERY_PARCEL_INFO {
+    uint32 parcelIndex = 1;
+    repeated SPARCEL_REWARD_INFO rewardInfos = 2;
+    int64 expireTimeMs = 3;
+    string designDataId = 4;
+    string title = 5;
+    int32 isNew = 6;
+    int32 isExpired = 7;
+}
+
+message SC2S_MERCHANT_DELIVERY_PARCEL_LIST_REQ {
+    int32 pageIndex = 1;
+    int32 parcelsPerPage = 2;
+}
+
+message SS2C_MERCHANT_DELIVERY_PARCEL_LIST_RES {
+    repeated SMERCHANT_DELIVERY_PARCEL_INFO infos = 1;
+    int32 pageIndex = 2;
+    int32 pageMax = 3;
+}
+
+message SC2S_MERCHANT_DELIVERY_CHECK_PARCEL_REQ {
+    uint32 parcelIndex = 1;
+}
+
+message SS2C_MERCHANT_DELIVERY_CHECK_PARCEL_RES {
+    int32 result = 1;
+}
+
+message SC2S_MERCHANT_DELIVERY_RECEIVE_PARCEL_REQ {
+    uint32 parcelIndex = 1;
+    int32 parcelsPerPage = 2;
+}
+
+message SS2C_MERCHANT_DELIVERY_RECEIVE_PARCEL_RES {
+    int32 result = 1;
+    repeated SPARCEL_REWARD_INFO rewardInfos = 2;
+}
+
+message SS2C_MERCHANT_DELIVERY_NEW_PARCEL_NOT {
+    int32 parcelFlag = 1;
+}
+
+message SC2S_MERCHANT_DELIVERY_PARCEL_EXPIRED_REMOVE_REQ {
+    uint32 parcelIndex = 1;
+    int32 parcelsPerPage = 2;
+}
+
+message SS2C_MERCHANT_DELIVERY_PARCEL_EXPIRED_REMOVE_RES {
+    int32 result = 1;
 }

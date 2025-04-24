@@ -249,3 +249,14 @@ message SS2C_REPORT_ACCURACY_STAT_NOT {
     int32 reportedCount = 1;
     int32 cheaterBanCount = 2;
 }
+
+message SC2S_CONTENTS_OPEN_STATUS_REQ {
+    uint32 toggleContentType = 1;
+}
+
+message SS2C_CONTENTS_OPEN_STATUS_RES {
+    uint32 result = 1;
+    uint32 toggleContentType = 2;
+    uint32 openStatus = 3;
+    int64 remainTimeSec = 4;
+}
