@@ -4,6 +4,7 @@ package DC.Packet;
 
 import "_Item.proto";
 import "_Character.proto";
+import "Common.proto";
 
 option java_multiple_files = false;
 option java_outer_classname = "dediServer";
@@ -55,11 +56,6 @@ message S2C_GameEnterUser_Json {
     int32 karmaRating = 9;
     repeated SReservedPartyMember reservedPartyMember = 10;
     int32 isRandomJoin = 11;
-}
-
-message GameExitAdvPoint {
-    int32 advPointType = 1;
-    int32 advPoint = 2;
 }
 
 message GameExitExpPoint {
@@ -178,13 +174,6 @@ message C2S_GameCharacterInfo_Get {
     string accountId = 2;
     string characterId = 3;
     uint32 gameType = 4;
-}
-
-message SRankGameUserInfo {
-    string rankId = 1;
-    uint32 currentPoint = 2;
-    uint32 needPoint = 3;
-    uint32 currentTotalPoint = 4;
 }
 
 message SGameCharacterInfo {
