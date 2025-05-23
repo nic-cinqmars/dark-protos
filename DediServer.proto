@@ -242,11 +242,15 @@ message C2S_UserReport_POST {
     string reportContent = 7;
 }
 
-message S2C_UserReport_POST_Response {
-    string reportAccountId = 1;
+message UserReport {
+    string reporterAccountId = 1;
     string targetAccountId = 2;
-    string reportKey = 3;
-    uint32 category = 4;
+    uint32 category = 3;
+    string reportKey = 4;
+}
+
+message S2C_UserReport_POST_Response {
+    UserReport report = 1;
 }
 
 message Location {
@@ -319,6 +323,11 @@ message SFloorRuleBlizzardInfo {
     int32 index = 1;
     string id = 2;
     int32 phaseDuration = 3;
+}
+
+message S2C_OutgameReport_GET {
+    uint32 result = 1;
+    repeated UserReport reports = 2;
 }
 
 message S2C_DungeonFloorRuleBlizzard_GET {

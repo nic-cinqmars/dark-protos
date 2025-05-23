@@ -340,6 +340,10 @@ message GameExitAdvPoint {
     int32 advCount = 3;
 }
 
+message AttackInfo {
+    
+}
+
 message SRankGameUserInfo {
     string rankId = 1;
     uint32 currentPoint = 2;

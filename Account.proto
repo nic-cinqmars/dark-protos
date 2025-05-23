@@ -224,3 +224,23 @@ message SS2C_PING_REGION_SELECT_NOT {
     uint32 result = 1;
     uint32 region = 2;
 }
+
+message SS2C_TRUSTED_ACCOUNT_INFO_NOT {
+    uint32 result = 1;
+    string enforcerRatingId = 2;
+    int32 guiltyReportCount = 3;
+    int32 judgedReportCount = 4;
+    uint64 outlawReleaseTimeMs = 5;
+}
+
+message SC2S_TRUSTED_ACCOUNT_INFO_REQ {
+    
+}
+
+message SS2C_TRUSTED_ACCOUNT_INFO_RES {
+    uint32 result = 1;
+    string enforcerRatingId = 2;
+    int32 guiltyReportCount = 3;
+    int32 judgedReportCount = 4;
+    uint64 outlawReleaseTimeMs = 5;
+}
