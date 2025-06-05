@@ -66,6 +66,7 @@ message SCHARACTER_PARTY_INFO {
     uint32 mmrRating = 16;
     uint32 remainPlacementCount = 17;
     repeated SCHARACTER_RANK_INFO rankInfos = 18;
+    uint32 isOutlaw = 19;
 }
 
 message SCHARACTER_TRADE_INFO {
