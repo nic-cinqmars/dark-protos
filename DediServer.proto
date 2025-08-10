@@ -56,6 +56,7 @@ message S2C_GameEnterUser_Json {
     int32 karmaRating = 9;
     repeated SReservedPartyMember reservedPartyMember = 10;
     int32 isRandomJoin = 11;
+    int32 findRandomTeam = 12;
 }
 
 message GameExitExpPoint {
@@ -325,7 +326,7 @@ message SFloorRuleBlizzardInfo {
     int32 phaseDuration = 3;
 }
 
-message S2C_OutgameReport_GET {
+message S2C_GameReport_GET {
     uint32 result = 1;
     repeated UserReport reports = 2;
 }
@@ -398,17 +399,18 @@ message SDownCharacterInfo {
     uint32 bDead = 1;
     uint32 bNotEscaped = 2;
     uint32 bHasDamaged = 3;
-    repeated SDownItem downItems = 4;
-    repeated SDownSpell downSpells = 5;
-    repeated SDownSkill downSkills = 6;
-    repeated SDownEffect downEffects = 7;
-    repeated uint64 originItemUniqueIds = 8;
-    repeated SDownFriendItem friendItems = 9;
-    repeated SItem recoveryItems = 10;
-    repeated SGameQuestInfo downQuests = 11;
-    repeated IngameObjectiveInfo downAchievements = 12;
-    repeated uint64 prevGameIds = 13;
-    repeated SDownLog downLogs = 14;
+    uint32 bIngamePartied = 4;
+    repeated SDownItem downItems = 5;
+    repeated SDownSpell downSpells = 6;
+    repeated SDownSkill downSkills = 7;
+    repeated SDownEffect downEffects = 8;
+    repeated uint64 originItemUniqueIds = 9;
+    repeated SDownFriendItem friendItems = 10;
+    repeated SItem recoveryItems = 11;
+    repeated SGameQuestInfo downQuests = 12;
+    repeated IngameObjectiveInfo downAchievements = 13;
+    repeated uint64 prevGameIds = 14;
+    repeated SDownLog downLogs = 15;
 }
 
 message S2C_ContinuousMatch_CharacterInfo {
@@ -593,4 +595,18 @@ message SUserGameEnterInfo {
 
 message S2C_Polling_UserGameEnter_Res {
     repeated SUserGameEnterInfo infos = 1;
+}
+
+message C2S_GameAttackInfo_Post {
+    uint64 gameId = 1;
+    string accountId = 2;
+    string characterId = 3;
+    repeated AttackInfo attackInfo = 4;
+}
+
+message C2S_Game_Party_Formation_POST {
+    uint64 gameId = 1;
+    string accountId = 2;
+    string characterId = 3;
+    repeated string partyAccountIds = 4;
 }

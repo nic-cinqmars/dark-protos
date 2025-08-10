@@ -268,14 +268,11 @@ message SC2S_OUTGAME_REPORT_REQ {
     string targetAccountId = 3;
     string targetCharacterId = 4;
     SACCOUNT_NICKNAME targetNickname = 5;
+    uint32 reportLocation = 6;
 }
 
 message SS2C_OUTGAME_REPORT_RES {
     uint32 result = 1;
-}
-
-message SS2C_OUTGAME_NOT {
-    
 }
 
 message SC2S_LAST_GAME_ADVENTURE_RESULT_REQ {

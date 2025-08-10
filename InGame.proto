@@ -111,3 +111,15 @@ message SS2C_MATCH_POOL_REGISTERED_NOT {
 message SS2C_MATCHMAKING_FAIL_NOT {
     uint32 result = 1;
 }
+
+message SC2S_INGAME_REPORT_REQ {
+    string accountId = 1;
+    uint32 category = 2;
+    string targetAccountId = 3;
+    string targetCharacterId = 4;
+    SACCOUNT_NICKNAME targetNickname = 5;
+}
+
+message SS2C_INGAME_REPORT_RES {
+    uint32 result = 1;
+}
